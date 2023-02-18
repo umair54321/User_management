@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>dashboard</h1>
+    
+    <a href="/admin/addnewUser">Add New User</a>
+    <a href="/admin/exportUsers">Exports Users</a>
+    <a href="/admin/exportUsersPdf">Exports Users into Pdf</a>
+    <table width="50%">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Image</th>
+            <th>Verified</th>
+            <th>Action</th>
+        </tr>
+       
+   
+    <% 
+        if(users.length > 0){
+            for(let i = 0; i < users.length;i++){
+                %>
+                <tr>
+                    <td> <%= users[i].name %> </td>
+                    <td> <%= users[i].email %> </td>
+                    <td> <%= users[i].mobile %> </td>
+                    <td> <img src="/userImage/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px" height="100px"> </td>
+                    <td> <% 
+                            if(users[i].is_verified == 0){
+                                %>
+                                    <p>Not Verified</p>
+                                <%
+                            }
+                            else{
+                                %>
+                                    <p>Verified</p>
+                                <%
+                            }
+                         %> </td>
+                    <td><a href="/admin/editUser?id=<%=users[i]._id %>">Edit</a></td>
+                    <td><a href="/admin/deleteUser?id=<%=users[i]._id %>">Delete</a></td>
+                </tr>
+                <%
+            }
+        }
+        else{
+            %>
+            <tr>
+                <td colspan="5">Users Not Found</td>
+            </tr>
+            <%
+        }
+    %>
+</table>
+        <br><br>
+    <a href="/admin/home">Go to Home</a>
+
+</body>
+</html>

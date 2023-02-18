@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Users Lists</h1>
+
+    <table width="100%">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Image</th>
+            <th>Verified</th>
+            <th>Action</th>
+        </tr>
+       
+   
+    <% 
+        if(users.length > 0){
+            for(let i = 0; i < users.length;i++){
+                %>
+                <tr>
+                    <td> <%= users[i].name %> </td>
+                    <td> <%= users[i].email %> </td>
+                    <td> <%= users[i].mobile %> </td>
+                    <td> <img src="http://localhost:3000/userImage/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px" height="100px"> </td>
+                    <td> <% 
+                            if(users[i].is_verified == 0){
+                                %>
+                                    <p>Not Verified</p>
+                                <%
+                            }
+                            else{
+                                %>
+                                    <p>Verified</p>
+                                <%
+                            }
+                         %> </td>
+                    
+                </tr>
+                <%
+            }
+        }
+        else{
+            %>
+            <tr>
+                <td colspan="5">Users Not Found</td>
+            </tr>
+            <%
+        }
+    %>
+</table>
+       
+   
+</body>
+</html>

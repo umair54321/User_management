@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <img src="userImage/<%= user.image %>" width="100px"  alt="<%= user.image %>">
+    <form action="" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" id="">
+        <input type="hidden" name="user_id" value="<%= user._id %>">
+        <br><br>
+        <input type="text" name="name" value="<%= user.name %>" placeholder="Enter Name" required>
+        <br><br>
+        <input type="email" name="email" value="<%= user.email %>" placeholder="Enter Email" required>
+        <br><br>
+        <input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Mobile" required>
+        <br><br>
+        <input type="submit" value="Update Profile">
+    </form>
+</body>
+</html>

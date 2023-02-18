@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>welcome to admin dashboard</h1>
+    <a href="/admin/dashboard">dashboard</a>
+    <table width="50%">
+        <tr>
+            <td><img src="/userImage/<%= admin.image %>" alt="<%= admin.image %>"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= admin.email %></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><%= admin.mobile %></td>
+        </tr>
+        <tr>
+            <td>Verified</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+    <a href="/edit?id=<%= admin._id %>">Edit</a>
+    <br>
+    <a href="/logout">logout</a>
+</body>
+</html>
